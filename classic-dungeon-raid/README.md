@@ -30,8 +30,11 @@ src/
     ClassicPalette.lua           # allowed BrickColors whitelist
     StudsHelper.lua              # applyStuds / applyStudsToModel
     ClassicUI.lua                # makeFrame / makeButton / makeLabel
-  assets/                     # -> ReplicatedStorage.Assets
-    init.lua                     # asset manifest (textures/fonts/templates)
+  assets/                     # -> ReplicatedStorage.Assets (must stay a pure Folder)
+    asset_manifest.lua.example   # documentation of placeholder IDs (rename to .lua
+                                 # only if you move it OUT of this folder — any .lua
+                                 # inside src/assets turns the Folder into a script)
+    PartTemplates/               # drop real .rbxm models here as subfolders/files
 ```
 
 ### Sync map (`default.project.json`)
