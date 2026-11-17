@@ -32,8 +32,12 @@ src/
     ClassicUI.lua                # makeFrame / makeButton / makeLabel
   AssetManifest.lua              # runtime manifest of placeholder asset IDs
                                  # (lives in src/shared so src/assets can stay a pure Folder)
-  assets/                     # -> ReplicatedStorage.Assets (must stay a pure Folder)
-    PartTemplates/               # drop real .rbxm models here as subfolders/files
+  assets/                        # -> ReplicatedStorage.Assets (declared as $className
+                                 # "Folder" in default.project.json; its contents are NOT
+                                 # path-mapped, so it can never conflict with Rojo's
+                                 # filesystem instance detection)
+    PartTemplates/               # drop real .rbxm model folders here (each .rbxm goes in
+                                 # its own subfolder, e.g. PartTemplates/Goblin/model.rbxx)
                                  # NOTE: never put a loose .lua / init.lua directly in
                                  # src/assets — Rojo would turn the Folder into a
                                  # ModuleScript and error on serve/build.

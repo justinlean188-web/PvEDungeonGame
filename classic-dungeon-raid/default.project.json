@@ -7,7 +7,10 @@
       "$path": "src/shared",
       "Assets": {
         "$className": "Folder",
-        "$path": "src/assets"
+        "$ignoreUnknownInstances": true,
+        "PartTemplates": {
+          "$path": "src/assets/PartTemplates"
+        }
       }
     },
     "ServerScriptService": {
