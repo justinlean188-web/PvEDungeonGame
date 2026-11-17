@@ -1,5 +1,6 @@
--- Assets folder manifest (Rojo maps this folder to ReplicatedStorage.Assets).
--- This file documents what belongs here; it is not a runtime script.
+-- Asset manifest (runtime module).
+-- Lives in ReplicatedStorage (src/shared) because src/assets must stay a pure Folder
+-- for Rojo; require it as: require(ReplicatedStorage.AssetManifest)
 return {
 	["StudTextures"] = {
 		["ClassicStudsTop"]  = "rbxassetid://0000000001", -- TODO: CLASSIC_STUD_TEXTURE_TOP

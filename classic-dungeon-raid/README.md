@@ -30,8 +30,17 @@ src/
     ClassicPalette.lua           # allowed BrickColors whitelist
     StudsHelper.lua              # applyStuds / applyStudsToModel
     ClassicUI.lua                # makeFrame / makeButton / makeLabel
-  assets/                     # -> ReplicatedStorage.Assets
-    init.lua                     # asset manifest (textures/fonts/templates)
+  AssetManifest.lua              # runtime manifest of placeholder asset IDs
+                                 # (lives in src/shared so src/assets can stay a pure Folder)
+  assets/                        # -> ReplicatedStorage.Assets (declared as $className
+                                 # "Folder" in default.project.json; its contents are NOT
+                                 # path-mapped, so it can never conflict with Rojo's
+                                 # filesystem instance detection)
+    PartTemplates/               # drop real .rbxm model folders here (each .rbxm goes in
+                                 # its own subfolder, e.g. PartTemplates/Goblin/model.rbxx)
+                                 # NOTE: never put a loose .lua / init.lua directly in
+                                 # src/assets — Rojo would turn the Folder into a
+                                 # ModuleScript and error on serve/build.
 ```
 
 ### Sync map (`default.project.json`)
@@ -66,7 +75,8 @@ Open **`src/shared/MonetizationConfig.lua`** and replace every placeholder:
 Also swap placeholder **texture/sky asset IDs** marked `TODO:` in:
 - `src/shared/StudsHelper.lua` (`CLASSIC_STUD_TEXTURE_TOP/SIDE`)
 - `src/server/ServerBootstrap.server.lua` (classic skybox faces)
-- `src/assets/init.lua` (UI sfx/font manifest)
+- `src/shared/AssetManifest.lua` (UI sfx/font manifest — require it with
+  `require(ReplicatedStorage.AssetManifest)` at runtime)
 
 ## Remote Signatures (contract — update both sides together)
 
