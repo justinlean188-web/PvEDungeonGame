@@ -47,7 +47,7 @@ Lighting properties (Legacy technology, Ambient 0,0,0, OutdoorAmbient 128,128,12
 ## Using Rojo
 
 ```bash
-rojo serve            # from repo root; starts the sync server
+rojo serve            # run from inside classic-dungeon-raid/ (where default.project.json lives)
 ```
 1. Open Roblox Studio → Plugins → **Rojo**.
 2. Click **Connect** while `rojo serve` runs.
